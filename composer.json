@@ -1,0 +1,19 @@
+{
+    "name": "lucasandre-dev/laravel-code-generator",
+    "description": "Code generator from templates",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "LucasandreDev\\LaravelCodeGenerator\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Lucas",
+            "email": "lucasandre.developer@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

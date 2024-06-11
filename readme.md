@@ -2,7 +2,8 @@
 
 ## Instructions
 
-* Run command ``php artisan vendor:publish --tag=templates-code-generator``
+* Run command ``php artisan vendor:publish --tag=templates-code-generator-config``
+* Run command ``php artisan vendor:publish --tag=templates-code-generator-mockups``
 * Configure file in ``config/templates-code-generator.php``
 * Run command ``php artisan code:generate``
 

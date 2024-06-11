@@ -7,27 +7,27 @@ return [
              * ACTIONS
              */
             [
-                'template_location' => "/src/Templates/Mockups/Main/Actions/CreateEntityActionMockup.txt",
+                'template_location' => "/templates/Mockups/clean-architecture/Actions/CreateEntityActionMockup.txt",
                 'final_destination' => "/src/domain/%entity%/Actions/Create%entity%Action.php",
             ],
             [
-                'template_location' => "src/Templates/Mockups/Main/Actions/UpdateEntityActionMockup.txt",
+                'template_location' => "templates/Mockups/clean-architecture/Actions/UpdateEntityActionMockup.txt",
                 'final_destination' => "/src/domain/%entity%/Actions/Update%entity%Action.php",
             ],
             [
-                'template_location' => "src/Templates/Mockups/Main/Actions/DeleteEntityActionMockup.txt",
+                'template_location' => "templates/Mockups/clean-architecture/Actions/DeleteEntityActionMockup.txt",
                 'final_destination' => "/src/domain/%entity%/Actions/Delete%entity%Action.php",
             ],
             [
-                'template_location' => "src/Templates/Mockups/Main/Actions/GetAllEntitiesActionMockup.txt",
+                'template_location' => "templates/Mockups/clean-architecture/Actions/GetAllEntitiesActionMockup.txt",
                 'final_destination' => "/src/domain/%entity%/Actions/GetAll%entity%sAction.php",
             ],
             [
-                'template_location' => "src/Templates/Mockups/Main/Actions/GetRegionsListAction.txt",
+                'template_location' => "templates/Mockups/clean-architecture/Actions/GetRegionsListAction.txt",
                 'final_destination' => "/src/domain/%entity%/Actions/Get%entity%sListAction.php",
             ],
             [
-                'template_location' => "src/Templates/Mockups/Main/Actions/GetEntityByIdActionMockup.txt",
+                'template_location' => "templates/Mockups/clean-architecture/Actions/GetEntityByIdActionMockup.txt",
                 'final_destination' => "/src/domain/%entity%/Actions/Get%entity%ByIdAction.php",
             ],
 
@@ -36,7 +36,7 @@ return [
              * CONTRACTS
              */
             [
-                'template_location' => "src/Templates/Mockups/Main/Contracts/EntityRepositoryInterface.txt",
+                'template_location' => "templates/Mockups/clean-architecture/Contracts/EntityRepositoryInterface.txt",
                 'final_destination' => "/src/domain/%entity%/Contracts/%entity%RepositoryInterface.php",
             ],
 
@@ -44,27 +44,27 @@ return [
              * DTO
              */
             [
-                'template_location' => "src/Templates/Mockups/Main/DTO/CreateEntityInputDto.txt",
+                'template_location' => "templates/Mockups/clean-architecture/DTO/CreateEntityInputDto.txt",
                 'final_destination' => "/src/domain/%entity%/DTO/Create%entity%InputDto.php",
             ],
             [
-                'template_location' => "src/Templates/Mockups/Main/DTO/DeleteEntityInputDto.txt",
+                'template_location' => "templates/Mockups/clean-architecture/DTO/DeleteEntityInputDto.txt",
                 'final_destination' => "/src/domain/%entity%/DTO/Delete%entity%InputDto.php",
             ],
             [
-                'template_location' => "src/Templates/Mockups/Main/DTO/EntityOutputDto.txt",
+                'template_location' => "templates/Mockups/clean-architecture/DTO/EntityOutputDto.txt",
                 'final_destination' => "/src/domain/%entity%/DTO/%entity%OutputDto.php",
             ],
             [
-                'template_location' => "src/Templates/Mockups/Main/DTO/GetAllEntitiesInputDto.txt",
+                'template_location' => "templates/Mockups/clean-architecture/DTO/GetAllEntitiesInputDto.txt",
                 'final_destination' => "/src/domain/%entity%/DTO/GetAll%entity%sInputDto.php",
             ],
             [
-                'template_location' => "src/Templates/Mockups/Main/DTO/GetEntityByIdInputDto.txt",
+                'template_location' => "templates/Mockups/clean-architecture/DTO/GetEntityByIdInputDto.txt",
                 'final_destination' => "/src/domain/%entity%/DTO/Get%entity%ByIdInputDto.php",
             ],
             [
-                'template_location' => "src/Templates/Mockups/Main/DTO/UpdateEntityInputDto.txt",
+                'template_location' => "templates/Mockups/clean-architecture/DTO/UpdateEntityInputDto.txt",
                 'final_destination' => "/src/domain/%entity%/DTO/Update%entity%InputDto.php",
             ],
 
@@ -72,7 +72,7 @@ return [
              * ENTITIES
              */
             [
-                'template_location' => "src/Templates/Mockups/Main/Entities/Entity.txt",
+                'template_location' => "templates/Mockups/clean-architecture/Entities/Entity.txt",
                 'final_destination' => "/src/domain/%entity%/Entities/%entity%.php",
             ],
 
@@ -80,7 +80,7 @@ return [
              * FACADES
              */
             [
-                'template_location' => "src/Templates/Mockups/Main/Facades/EntityFacade.txt",
+                'template_location' => "templates/Mockups/clean-architecture/Facades/EntityFacade.txt",
                 'final_destination' => "/src/domain/%entity%/Facades/%entity%Facade.php",
             ],
 
@@ -88,7 +88,7 @@ return [
              * MAPPERS
              */
             [
-                'template_location' => "src/Templates/Mockups/Main/Mappers/EntityMapper.txt",
+                'template_location' => "templates/Mockups/clean-architecture/Mappers/EntityMapper.txt",
                 'final_destination' => "/src/domain/%entity%/Mappers/%entity%Mapper.php",
             ],
 
@@ -96,7 +96,7 @@ return [
              * MODELS
              */
             [
-                'template_location' => "src/Templates/Mockups/Main/Models/EntityModel.txt",
+                'template_location' => "templates/Mockups/clean-architecture/Models/EntityModel.txt",
                 'final_destination' => "/src/domain/%entity%/Models/%entity%Model.php",
             ],
 
@@ -104,7 +104,7 @@ return [
              * REPOSITORIES
              */
             [
-                'template_location' => "src/Templates/Mockups/Main/Repositories/EntityRepository.txt",
+                'template_location' => "templates/Mockups/clean-architecture/Repositories/EntityRepository.txt",
                 'final_destination' => "/src/domain/%entity%/Repositories/%entity%Repository.php",
             ],
         ],

@@ -1,0 +1,13 @@
+<?php
+
+namespace Src\domain\%PascalCase%\DTO;
+
+class Get%PascalCase%ByIdInputDto
+{
+    public int $id;
+
+    public function __construct(int $id)
+    {
+        $this->id = $id;
+    }
+}

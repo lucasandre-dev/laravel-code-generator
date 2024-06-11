@@ -1,0 +1,32 @@
+<?php
+
+namespace Src\domain\%PascalCase%\Actions;
+
+use Src\domain\%PascalCase%\Contracts\%PascalCase%RepositoryInterface;
+use Src\domain\%PascalCase%\DTO\Get%PascalCase%ByIdInputDto;
+use Src\domain\%PascalCase%\DTO\%PascalCase%OutputDto;
+use Src\domain\%PascalCase%\Mappers\%PascalCase%Mapper;
+
+final readonly class Get%PascalCase%ByIdAction
+{
+    private %PascalCase%RepositoryInterface $%camelCase%Repository;
+
+    /**
+     * @param %PascalCase%RepositoryInterface $%camelCase%Repository
+     */
+    public function __construct(%PascalCase%RepositoryInterface $%camelCase%Repository)
+    {
+        $this->%camelCase%Repository = $%camelCase%Repository;
+    }
+
+    public function execute(Get%PascalCase%ByIdInputDto $inputDto): ?%PascalCase%OutputDto
+    {
+        $%camelCase% = $this->%camelCase%Repository->getById($inputDto->id);
+
+        if (empty($%camelCase%)) {
+            return null;
+        }
+
+        return %PascalCase%Mapper::entityToOutputDto($%camelCase%);
+    }
+}

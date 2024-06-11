@@ -1,0 +1,14 @@
+<?php
+
+namespace Src\domain\%PascalCase%\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class %PascalCase%Model extends Model
+{
+    protected $table = "%camelCase%s";
+
+    protected $fillable = [
+
+    ];
+}

@@ -1,0 +1,42 @@
+<?php
+
+namespace Src\domain\%PascalCase%\Actions;
+
+use Src\domain\_Shared\Transactions\TransactionInterface;
+use Src\domain\%PascalCase%\Contracts\%PascalCase%RepositoryInterface;
+use Src\domain\%PascalCase%\DTO\Delete%PascalCase%InputDto;
+use Src\domain\%PascalCase%\Exceptions\%PascalCase%NotFoundException;
+
+final readonly class Delete%PascalCase%Action
+{
+    private %PascalCase%RepositoryInterface $%camelCase%Repository;
+    private TransactionInterface $transaction;
+
+    /**
+     * @param %PascalCase%RepositoryInterface $%camelCase%Repository
+     * @param TransactionInterface $transaction
+     */
+    public function __construct(%PascalCase%RepositoryInterface $%camelCase%Repository, TransactionInterface $transaction)
+    {
+        $this->%camelCase%Repository = $%camelCase%Repository;
+        $this->transaction = $transaction;
+    }
+
+    /**
+     * @param Delete%PascalCase%InputDto $inputDto
+     * @throws %PascalCase%NotFoundException
+     * @return void
+     */
+    public function execute(Delete%PascalCase%InputDto $inputDto): void
+    {
+        $%camelCase% = $this->%camelCase%Repository->getById($inputDto->id);
+
+        if (empty($%camelCase%)){
+            throw new %PascalCase%NotFoundException();
+        }
+
+        $this->transaction->group(function () use ($inputDto) {
+            $this->%camelCase%Repository->deleteById($inputDto->id);
+        });
+    }
+}

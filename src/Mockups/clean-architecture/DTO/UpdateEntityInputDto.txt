@@ -1,0 +1,8 @@
+<?php
+
+namespace Src\domain\%PascalCase%\DTO;
+
+class Update%PascalCase%InputDto
+{
+    public int $id;
+}

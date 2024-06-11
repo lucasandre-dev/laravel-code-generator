@@ -1,0 +1,8 @@
+<?php
+
+namespace Src\domain\%PascalCase%\DTO;
+
+class %PascalCase%OutputDto
+{
+    public int $id;
+}

@@ -1,0 +1,46 @@
+<?php
+
+namespace Src\domain\%PascalCase%\Actions;
+
+use Src\domain\_Shared\Transactions\TransactionInterface;
+use Src\domain\%PascalCase%\Contracts\%PascalCase%RepositoryInterface;
+use Src\domain\%PascalCase%\DTO\Create%PascalCase%InputDto;
+use Src\domain\%PascalCase%\DTO\%PascalCase%OutputDto;
+use Src\domain\%PascalCase%\Entities\%PascalCase%;
+use Src\domain\%PascalCase%\Mappers\%PascalCase%Mapper;
+
+final readonly class Create%PascalCase%Action
+{
+    private %PascalCase%RepositoryInterface $%camelCase%Repository;
+    private TransactionInterface $transaction;
+
+    /**
+     * @param %PascalCase%RepositoryInterface $%camelCase%Repository
+     * @param TransactionInterface $transaction
+     */
+    public function __construct(%PascalCase%RepositoryInterface $%camelCase%Repository, TransactionInterface $transaction)
+    {
+        $this->%camelCase%Repository = $%camelCase%Repository;
+        $this->transaction = $transaction;
+    }
+
+    public function execute(Create%PascalCase%InputDto $inputDto): %PascalCase%OutputDto
+    {
+        //alternative 01
+        $%camelCase% = %PascalCase%::create(
+            throw new Exception("not implemented")
+        );
+
+        //alternative 02
+        $%camelCase% = new %PascalCase%(
+            throw new Exception("not implemented")
+        );
+
+        $%camelCase%Result = null;
+        $this->transaction->group(function () use ($%camelCase%, &$%camelCase%Result) {
+            $%camelCase%Result = $this->%camelCase%Repository->create($%camelCase%);
+        });
+
+        return %PascalCase%Mapper::entityToOutputDto($%camelCase%Result);
+    }
+}

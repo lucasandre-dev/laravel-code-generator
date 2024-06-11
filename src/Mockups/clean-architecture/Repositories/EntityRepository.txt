@@ -1,0 +1,98 @@
+<?php
+
+namespace Src\domain\%PascalCase%\Repositories;
+
+use Src\domain\_Shared\Pagination\Pagination;
+use Src\domain\%PascalCase%\Contracts\%PascalCase%RepositoryInterface;
+use Src\domain\%PascalCase%\Entities\%PascalCase%;
+use Src\domain\%PascalCase%\Models\%PascalCase%Model;
+
+class %PascalCase%Repository implements %PascalCase%RepositoryInterface
+{
+
+    public function create(%PascalCase% $%camelCase%): %PascalCase%
+    {
+        $%camelCase%Model = %PascalCase%Model::query()->create([
+            "COLUMN_NAME" => $%camelCase%->get.(),
+        ]);
+
+        return $this->map%PascalCase%($%camelCase%Model);
+    }
+
+    public function update(%PascalCase% $%camelCase%): %PascalCase%
+    {
+        $%camelCase%Model = %PascalCase%Model::query()->where('id', $%camelCase%->getId())->first();
+
+        if (empty($%camelCase%Model)){
+            throw new \Exception("Not Found");
+        }
+
+        $%camelCase%Model->COLUMN_NAME = $%camelCase%->get.();
+        $%camelCase%Model->update();
+
+        return $this->map%PascalCase%($%camelCase%Model);
+    }
+
+    public function getById(int $id): ?%PascalCase%
+    {
+        $%camelCase%Model = %PascalCase%Model::query()->where('id', $id)->first();
+
+        if(empty($%camelCase%Model)){
+            return null;
+        }
+
+        return $this->map%PascalCase%($%camelCase%Model);
+    }
+
+    public function getList(array $filters): Pagination
+    {
+        $query = %PascalCase%Model::query();
+
+        $models = $query->paginate(15);
+
+        $paginator = new Pagination(
+            $models->items(),
+            $models->total(),
+            $models->perPage()
+        );
+
+        $paginator->mapItems(function ($%camelCase%Model) {
+            return $this->map%PascalCase%($%camelCase%Model);
+        });
+
+        return $paginator;
+    }
+
+    /**
+     * @return %PascalCase%[]
+     * @throws \Exception
+     */
+    public function getAll(array $filters): array
+    {
+        $%camelCase%sModels = %PascalCase%Model::query()->get();
+
+        $arr = [];
+        foreach ($%camelCase%sModels as $%camelCase%Model){
+            $arr[] = $this->map%PascalCase%($%camelCase%Model);
+        }
+        return $arr;
+    }
+
+    public function deleteById(int $id): void
+    {
+        %PascalCase%Model::query()->where('id', $id)->delete();
+    }
+
+    private function map%PascalCase%(object $%camelCase%Model): %PascalCase%
+    {
+        //alternative 01
+        return %PascalCase%::recovery(
+        );
+
+        //alternative 02
+        return new %PascalCase%(
+        );
+    }
+}
+
+

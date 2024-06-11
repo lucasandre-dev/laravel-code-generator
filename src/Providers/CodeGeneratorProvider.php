@@ -22,7 +22,11 @@ class CodeGeneratorProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../Configs/templates-code-generator.php' => config_path('templates-code-generator.php')
-        ], 'templates-code-generator');
+        ], 'templates-code-generator-config');
+
+        $this->publishes([
+            __DIR__.'/../Mockups/' => base_path('templates/Mockups'),
+        ], 'templates-code-generator-mockups');
 
         if ($this->app->runningInConsole()) {
             $this->commands([

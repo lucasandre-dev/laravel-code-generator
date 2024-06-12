@@ -10,6 +10,7 @@ class Operation
     private string $finalDestination;
     private string $templateString;
     private bool $force = false;
+    private ?string $disk;
     private array $replacements = [];
 
     /**
@@ -17,13 +18,15 @@ class Operation
      * @param string $finalDestination
      * @param string $templateString
      * @param bool $force
+     * @param string|null $disk
      */
-    public function __construct(string $templateLocation, string $finalDestination, string $templateString, bool $force = false)
+    public function __construct(string $templateLocation, string $finalDestination, string $templateString, bool $force = false, ?string $disk = null)
     {
         $this->templateLocation = $templateLocation;
         $this->finalDestination = $finalDestination;
         $this->templateString = $templateString;
         $this->force = $force;
+        $this->disk = $disk;
     }
 
     public function addReplacement(string $key, string $value): void
@@ -39,7 +42,7 @@ class Operation
             throw new \Exception("File already exists [$this->finalDestination]");
         }
 
-        Storage::put($this->finalDestination, $mockupCompiled);
+        Storage::disk($this->disk)->put($this->finalDestination, $mockupCompiled);
     }
 
     private function compileTemplate(): string
@@ -54,7 +57,7 @@ class Operation
 
     private function fileExists(): bool
     {
-        return Storage::exists($this->finalDestination);
+        return Storage::disk($this->disk)->exists($this->finalDestination);
     }
 
     public function getTemplateLocation(): string

@@ -16,6 +16,7 @@ class CodeGeneratorBuilder
     private array $operations = [];
     private array $replacements = [];
     private bool $force = false;
+    private ?string $disk = null;
 
     /**
      * @param string $entity
@@ -26,6 +27,8 @@ class CodeGeneratorBuilder
     {
         $this->entity = $entity;
         $this->force = $force;
+
+        $this->disk = config("templates-code-generator.disk");
 
         $this->entityPascalCaseName = Str::ucfirst($this->entity);
         $this->entityCamelCaseName = Str::camel($this->entity);
@@ -51,7 +54,7 @@ class CodeGeneratorBuilder
     public function operation(string $operationKey): self
     {
         $this->operationKey = $operationKey;
-        $operations = config("templates-code-generator.".$this->operationKey.".operations");
+        $operations = config("templates-code-generator.templates.".$this->operationKey.".operations");
 
         if (empty($operations)){
             throw new \Exception("operations not defined");
@@ -98,15 +101,16 @@ class CodeGeneratorBuilder
             throw new \Exception("template_location required");
         }
 
-        if (empty($operationArr['template_location']) || !Storage::exists($operationArr['template_location'])){
+        if (empty($operationArr['template_location']) || !Storage::disk($this->disk)->exists($operationArr['template_location'])){
             throw new \Exception("Mockup not found [".$operationArr['template_location']."]");
         }
 
         $operation = new Operation(
             $operationArr['template_location'],
             str_replace("%entity%", $this->entity, $operationArr['final_destination']),
-            Storage::get($operationArr['template_location']),
-            $this->force
+            Storage::disk($this->disk)->get($operationArr['template_location']),
+            $this->force,
+            $this->disk
         );
         foreach ($this->replacements as $key=>$replacement){
             $operation->addReplacement($key, $replacement);

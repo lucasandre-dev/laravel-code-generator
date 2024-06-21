@@ -3,33 +3,29 @@
 return [
     'disk' => 'templates',
     'templates' => [
-        'clean-architecture' => [
+        'CA-doctrine-tests' => [
             'operations' => [
                 /**
                  * ACTIONS
                  */
                 [
-                    'template_location' => "/templates/Mockups/clean-architecture/Actions/CreateEntityActionMockup.txt",
+                    'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/Actions/CreateEntityActionMockup.txt",
                     'final_destination' => "/src/domain/%entity%/Actions/Create%entity%Action.php",
                 ],
                 [
-                    'template_location' => "templates/Mockups/clean-architecture/Actions/UpdateEntityActionMockup.txt",
+                    'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/Actions/UpdateEntityActionMockup.txt",
                     'final_destination' => "/src/domain/%entity%/Actions/Update%entity%Action.php",
                 ],
                 [
-                    'template_location' => "templates/Mockups/clean-architecture/Actions/DeleteEntityActionMockup.txt",
+                    'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/Actions/DeleteEntityActionMockup.txt",
                     'final_destination' => "/src/domain/%entity%/Actions/Delete%entity%Action.php",
                 ],
                 [
-                    'template_location' => "templates/Mockups/clean-architecture/Actions/GetAllEntitiesActionMockup.txt",
+                    'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/Actions/GetAllEntitiesActionMockup.txt",
                     'final_destination' => "/src/domain/%entity%/Actions/GetAll%entity%sAction.php",
                 ],
                 [
-                    'template_location' => "templates/Mockups/clean-architecture/Actions/GetRegionsListAction.txt",
-                    'final_destination' => "/src/domain/%entity%/Actions/Get%entity%sListAction.php",
-                ],
-                [
-                    'template_location' => "templates/Mockups/clean-architecture/Actions/GetEntityByIdActionMockup.txt",
+                    'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/Actions/GetEntityByIdActionMockup.txt",
                     'final_destination' => "/src/domain/%entity%/Actions/Get%entity%ByIdAction.php",
                 ],
 
@@ -38,7 +34,7 @@ return [
                  * CONTRACTS
                  */
                 [
-                    'template_location' => "templates/Mockups/clean-architecture/Contracts/EntityRepositoryInterface.txt",
+                    'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/Contracts/EntityRepositoryInterface.txt",
                     'final_destination' => "/src/domain/%entity%/Contracts/%entity%RepositoryInterface.php",
                 ],
 
@@ -46,27 +42,27 @@ return [
                  * DTO
                  */
                 [
-                    'template_location' => "templates/Mockups/clean-architecture/DTO/CreateEntityInputDto.txt",
+                    'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/DTO/CreateEntityInputDto.txt",
                     'final_destination' => "/src/domain/%entity%/DTO/Create%entity%InputDto.php",
                 ],
                 [
-                    'template_location' => "templates/Mockups/clean-architecture/DTO/DeleteEntityInputDto.txt",
+                    'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/DTO/DeleteEntityInputDto.txt",
                     'final_destination' => "/src/domain/%entity%/DTO/Delete%entity%InputDto.php",
                 ],
                 [
-                    'template_location' => "templates/Mockups/clean-architecture/DTO/EntityOutputDto.txt",
+                    'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/DTO/EntityOutputDto.txt",
                     'final_destination' => "/src/domain/%entity%/DTO/%entity%OutputDto.php",
                 ],
                 [
-                    'template_location' => "templates/Mockups/clean-architecture/DTO/GetAllEntitiesInputDto.txt",
+                    'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/DTO/GetAllEntitiesInputDto.txt",
                     'final_destination' => "/src/domain/%entity%/DTO/GetAll%entity%sInputDto.php",
                 ],
                 [
-                    'template_location' => "templates/Mockups/clean-architecture/DTO/GetEntityByIdInputDto.txt",
+                    'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/DTO/GetEntityByIdInputDto.txt",
                     'final_destination' => "/src/domain/%entity%/DTO/Get%entity%ByIdInputDto.php",
                 ],
                 [
-                    'template_location' => "templates/Mockups/clean-architecture/DTO/UpdateEntityInputDto.txt",
+                    'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/DTO/UpdateEntityInputDto.txt",
                     'final_destination' => "/src/domain/%entity%/DTO/Update%entity%InputDto.php",
                 ],
 
@@ -74,7 +70,7 @@ return [
                  * ENTITIES
                  */
                 [
-                    'template_location' => "templates/Mockups/clean-architecture/Entities/Entity.txt",
+                    'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/Entities/Entity.txt",
                     'final_destination' => "/src/domain/%entity%/Entities/%entity%.php",
                 ],
 
@@ -82,7 +78,7 @@ return [
                  * FACADES
                  */
                 [
-                    'template_location' => "templates/Mockups/clean-architecture/Facades/EntityFacade.txt",
+                    'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/Facades/EntityFacade.txt",
                     'final_destination' => "/src/domain/%entity%/Facades/%entity%Facade.php",
                 ],
 
@@ -90,24 +86,35 @@ return [
                  * MAPPERS
                  */
                 [
-                    'template_location' => "templates/Mockups/clean-architecture/Mappers/EntityMapper.txt",
+                    'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/Mappers/EntityMapper.txt",
                     'final_destination' => "/src/domain/%entity%/Mappers/%entity%Mapper.php",
                 ],
 
                 /**
-                 * MODELS
+                 * MODELS XML
                  */
                 [
-                    'template_location' => "templates/Mockups/clean-architecture/Models/EntityModel.txt",
-                    'final_destination' => "/src/domain/%entity%/Models/%entity%Model.php",
+                    'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/ModelsXML/Entity.orm.txt",
+                    'final_destination' => "/src/domain/%entity%/ModelsXML/%entity%.orm.xml",
                 ],
 
                 /**
                  * REPOSITORIES
                  */
                 [
-                    'template_location' => "templates/Mockups/clean-architecture/Repositories/EntityRepository.txt",
+                    'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/Repositories/EntityRepository.txt",
                     'final_destination' => "/src/domain/%entity%/Repositories/%entity%Repository.php",
+                ],
+
+
+                /**
+                 * ******************************************************************************************
+                 *  TESTS
+                 * ******************************************************************************************
+                 */
+                [
+                    'template_location' => "templates/Mockups/CA-doctrine-tests/Tests/EntityTest.txt",
+                    'final_destination' => "/tests/Feature/%entity%/%entity%Test.php",
                 ],
             ],
         ]

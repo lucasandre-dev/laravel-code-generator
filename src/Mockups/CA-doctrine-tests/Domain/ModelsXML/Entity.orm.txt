@@ -1,0 +1,13 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
+
+    <!-- dica: você pode usar o chatgpt para gerar esse arquivo a partir da entidade -->
+    <entity name="Src\domain\%PascalCase%\Entities\%PascalCase%" table="TABLE_NAME__
+            repository-class="Src\domain\%PascalCase%\Repositories\ORM%PascalCase%Repository">
+        <id name="id" type="integer" column="id">
+            <generator strategy="AUTO" />
+        </id>
+        <field name="name" type="string" length="255"/>
+        <field name="status" type="boolean"/>
+    </entity>
+
+</doctrine-mapping>

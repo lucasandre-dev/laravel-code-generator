@@ -1,0 +1,20 @@
+<?php
+
+namespace Src\domain\%PascalCase%\Mappers;
+
+use AutoMapperPlus\AutoMapper;
+use AutoMapperPlus\Configuration\AutoMapperConfig;
+use Src\domain\%PascalCase%\DTO\%PascalCase%OutputDto;
+use Src\domain\%PascalCase%\Entities\%PascalCase%;
+
+final class %PascalCase%Mapper
+{
+    public static function entityToOutputDto(%PascalCase% $%camelCase%): %PascalCase%OutputDto
+    {
+        $config = new AutoMapperConfig();
+        $config->registerMapping(%PascalCase%::class, %PascalCase%OutputDto::class);
+        $mapper = new AutoMapper($config);
+
+        return $mapper->map($%camelCase%, %PascalCase%OutputDto::class);
+    }
+}

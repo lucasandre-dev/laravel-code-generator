@@ -26,12 +26,6 @@ class %PascalCase%Facade
         return $action->execute($inputDto);
     }
 
-    public static function list(GetAll%PascalCase%sInputDto $inputDto): Pagination
-    {
-        $action = new Get%PascalCase%sListAction(new %PascalCase%Repository());
-        return $action->execute($inputDto);
-    }
-
     public static function find(Get%PascalCase%ByIdInputDto $inputDto): ?%PascalCase%OutputDto
     {
         $action = new Get%PascalCase%ByIdAction(new %PascalCase%Repository());

@@ -2,7 +2,6 @@
 
 namespace Src\domain\%PascalCase%\Contracts;
 
-use Src\domain\_Shared\Pagination\Pagination;
 use Src\domain\%PascalCase%\Entities\%PascalCase%;
 
 interface %PascalCase%RepositoryInterface
@@ -12,8 +11,6 @@ interface %PascalCase%RepositoryInterface
     public function update(%PascalCase% $%camelCase%): %PascalCase%;
 
     public function getById(int $id): ?%PascalCase%;
-
-    public function getList(array $filters): Pagination;
 
     public function getAll(array $filters): array;
 

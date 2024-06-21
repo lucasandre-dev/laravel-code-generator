@@ -3,11 +3,11 @@
 namespace Src\domain\%PascalCase%\Actions;
 
 use Src\domain\%PascalCase%\Contracts\%PascalCase%RepositoryInterface;
-use Src\domain\%PascalCase%\DTO\Get%PascalCase%ByIdInputDto;
+use Src\domain\%PascalCase%\DTO\GetAll%PascalCase%sInputDto;
 use Src\domain\%PascalCase%\DTO\%PascalCase%OutputDto;
 use Src\domain\%PascalCase%\Mappers\%PascalCase%Mapper;
 
-final readonly class Get%PascalCase%ByIdAction
+final class GetAll%PascalCase%sAction
 {
     private %PascalCase%RepositoryInterface $%camelCase%Repository;
 
@@ -19,14 +19,19 @@ final readonly class Get%PascalCase%ByIdAction
         $this->%camelCase%Repository = $%camelCase%Repository;
     }
 
-    public function execute(Get%PascalCase%ByIdInputDto $inputDto): ?%PascalCase%OutputDto
+    /**
+     * @param GetAll%PascalCase%sInputDto $inputDto
+     * @return %PascalCase%OutputDto[]
+     */
+    public function execute(GetAll%PascalCase%sInputDto $inputDto): array
     {
-        $%camelCase% = $this->%camelCase%Repository->getById($inputDto->id);
+        $%camelCase%s = $this->%camelCase%Repository->getAll($inputDto->filters);
 
-        if (empty($%camelCase%)) {
-            return null;
+        $%camelCase%sOutput = [];
+        foreach ($%camelCase%s as $%camelCase%) {
+            $%camelCase%sOutput[] = %PascalCase%Mapper::entityToOutputDto($%camelCase%);
         }
 
-        return %PascalCase%Mapper::entityToOutputDto($%camelCase%);
+        return $%camelCase%sOutput;
     }
 }

@@ -4,14 +4,13 @@ namespace Src\domain\%PascalCase%\Actions;
 
 use Src\domain\_Shared\Transactions\TransactionInterface;
 use Src\domain\%PascalCase%\Contracts\%PascalCase%RepositoryInterface;
+use Src\domain\%PascalCase%\DTO\Create%PascalCase%InputDto;
 use Src\domain\%PascalCase%\DTO\%PascalCase%OutputDto;
-use Src\domain\%PascalCase%\DTO\Update%PascalCase%InputDto;
-use Src\domain\%PascalCase%\Exceptions\%PascalCase%NotFoundException;
+use Src\domain\%PascalCase%\Entities\%PascalCase%;
 use Src\domain\%PascalCase%\Mappers\%PascalCase%Mapper;
 
-final readonly class Update%PascalCase%Action
+final class Create%PascalCase%Action
 {
-
     private %PascalCase%RepositoryInterface $%camelCase%Repository;
     private TransactionInterface $transaction;
 
@@ -25,26 +24,17 @@ final readonly class Update%PascalCase%Action
         $this->transaction = $transaction;
     }
 
-    /**
-     * @param Update%PascalCase%InputDto $inputDto
-     * @return %PascalCase%OutputDto
-     * @throws %PascalCase%NotFoundException
-     */
-    public function execute(Update%PascalCase%InputDto $inputDto): %PascalCase%OutputDto
+    public function execute(Create%PascalCase%InputDto $inputDto): %PascalCase%OutputDto
     {
-        $%camelCase% = $this->%camelCase%Repository->getById($inputDto->id);
+        //alternative 01
+        $%camelCase% = new %PascalCase%();
 
-        if (empty($%camelCase%)){
-            throw new %PascalCase%NotFoundException();
-        }
-
-        $%camelCase%->update(
-            throw new Exception("not implemented")
-        );
+        //alternative 02
+        $%camelCase% = %PascalCase%::create();
 
         $%camelCase%Result = null;
         $this->transaction->group(function () use ($%camelCase%, &$%camelCase%Result) {
-            $%camelCase%Result = $this->%camelCase%Repository->update($%camelCase%);
+            $%camelCase%Result = $this->%camelCase%Repository->create($%camelCase%);
         });
 
         return %PascalCase%Mapper::entityToOutputDto($%camelCase%Result);

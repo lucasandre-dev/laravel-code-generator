@@ -2,6 +2,13 @@
 
 ## Instructions
 
+* Run command ``Register LucasandreDev\LaravelCodeGenerator\Providers\CodeGeneratorProvider in providers laravel``
+
+> Note:<br>
+> In laravel versions <= 10: https://laravel.com/docs/10.x/providers#registering-providers <br>
+> In laravel versions >= 11:
+> https://laravel.com/docs/11.x/providers#registering-providers
+
 * Run command ``php artisan vendor:publish --tag=templates-code-generator-config``
 * Run command ``php artisan vendor:publish --tag=templates-code-generator-mockups``
 * add the following configuration in 'config/filesystems.php'

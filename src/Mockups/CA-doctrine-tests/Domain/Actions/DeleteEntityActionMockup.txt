@@ -5,9 +5,8 @@ namespace Src\domain\%PascalCase%\Actions;
 use Src\domain\_Shared\Transactions\TransactionInterface;
 use Src\domain\%PascalCase%\Contracts\%PascalCase%RepositoryInterface;
 use Src\domain\%PascalCase%\DTO\Delete%PascalCase%InputDto;
-use Src\domain\%PascalCase%\Exceptions\%PascalCase%NotFoundException;
 
-final readonly class Delete%PascalCase%Action
+final class Delete%PascalCase%Action
 {
     private %PascalCase%RepositoryInterface $%camelCase%Repository;
     private TransactionInterface $transaction;
@@ -24,15 +23,15 @@ final readonly class Delete%PascalCase%Action
 
     /**
      * @param Delete%PascalCase%InputDto $inputDto
-     * @throws %PascalCase%NotFoundException
      * @return void
+     * @throws \Exception
      */
     public function execute(Delete%PascalCase%InputDto $inputDto): void
     {
         $%camelCase% = $this->%camelCase%Repository->getById($inputDto->id);
 
         if (empty($%camelCase%)){
-            throw new %PascalCase%NotFoundException();
+            throw new \Exception("%PascalCase% not found");
         }
 
         $this->transaction->group(function () use ($inputDto) {

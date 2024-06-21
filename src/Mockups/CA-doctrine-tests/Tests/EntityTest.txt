@@ -1,0 +1,91 @@
+<?php
+
+namespace %PascalCase%;
+
+use Src\domain\%PascalCase%\Actions\Delete%PascalCase%Action;
+use Src\domain\%PascalCase%\Actions\GetAll%PascalCase%sAction;
+use Src\domain\%PascalCase%\Actions\Get%PascalCase%ByIdAction;
+use Src\domain\%PascalCase%\Actions\Update%PascalCase%Action;
+use Src\domain\%PascalCase%\DTO\Delete%PascalCase%InputDto;
+use Src\domain\%PascalCase%\DTO\GetAll%PascalCase%sInputDto;
+use Src\domain\%PascalCase%\DTO\Get%PascalCase%ByIdInputDto;
+use Src\domain\%PascalCase%\DTO\Update%PascalCase%InputDto;
+use Tests\TestCase;
+use Src\domain\_Shared\Transactions\FakeTransaction;
+use Src\domain\%PascalCase%\Actions\Create%PascalCase%Action;
+use Src\domain\%PascalCase%\DTO\Create%PascalCase%InputDto;
+use Src\domain\%PascalCase%\Repositories\ORM%PascalCase%Repository;
+use Tests\Traits\RefreshDatabaseMysql;
+
+class %PascalCase%Test extends TestCase
+{
+    use RefreshDatabaseMysql;
+
+    public function test_create_%camelCase%()
+    {
+        $input = new Create%PascalCase%InputDto();
+
+        $action = new Create%PascalCase%Action(new ORM%PascalCase%Repository(), new FakeTransaction());
+        $output = $action->execute($input);
+
+        $this->assertSame($input->name, $output->name);
+    }
+
+    public function test_update_%camelCase%()
+    {
+        $mock = $this->create%PascalCase%Mock();
+
+        $input = new Update%PascalCase%InputDto($mock->id,);
+
+        $action = new Update%PascalCase%Action(new ORM%PascalCase%Repository(), new FakeTransaction());
+        $output = $action->execute($input);
+
+        $this->assertSame($input->name, $output->name);
+    }
+
+    public function test_get_%camelCase%_by_id()
+    {
+        $mock = $this->create%PascalCase%Mock();
+
+        $action = new Get%PascalCase%ByIdAction(new ORM%PascalCase%Repository());
+        $output = $action->execute(new Get%PascalCase%ByIdInputDto($mock->id));
+
+        $this->assertSame($mock->name, $output->name);
+    }
+
+    public function test_delete_%camelCase%_by_id()
+    {
+        $mock = $this->create%PascalCase%Mock();
+
+        $input = new Delete%PascalCase%InputDto($mock->id);
+
+        $action = new Delete%PascalCase%Action(new ORM%PascalCase%Repository(), new FakeTransaction());
+        $action->execute($input);
+
+        $action = new Get%PascalCase%ByIdAction(new ORM%PascalCase%Repository());
+        $output = $action->execute(new Get%PascalCase%ByIdInputDto($mock->id));
+
+        $this->assertNull($output);
+    }
+
+    public function test_get_all_%camelCase%s()
+    {
+        $mock = $this->create%PascalCase%Mock();
+
+        $input = new GetAll%PascalCase%sInputDto([]);
+
+        $action = new GetAll%PascalCase%sAction(new ORM%PascalCase%Repository());
+        $output = $action->execute($input);
+
+        $this->assertCount(1, $output);
+        $this->assertSame($mock->id, $output[0]->id);
+    }
+
+    public function create%PascalCase%Mock()
+    {
+        $input = new Create%PascalCase%InputDto();
+
+        $action = new Create%PascalCase%Action(new ORM%PascalCase%Repository(), new FakeTransaction());
+        return $action->execute($input);
+    }
+}

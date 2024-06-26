@@ -27,7 +27,7 @@ class CodeGeneratorCommand extends Command
      */
     public function handle()
     {
-        $defaultTemplate = "clean-architecture";
+        $defaultTemplate = "CA-doctrine-tests";
 
         $mustForce = $this->option('force');
         $entity = $this->ask('Qual o nome da entidade no singular? - Ex.: Customer');

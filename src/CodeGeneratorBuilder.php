@@ -11,6 +11,7 @@ class CodeGeneratorBuilder
     private string $entityCamelCaseName;
 
     private string $operationKey;
+    private ?string $subPaths = null;
     private string $entity;
     /** @var Operation[] */
     private array $operations = [];
@@ -25,7 +26,16 @@ class CodeGeneratorBuilder
      */
     private function __construct(string $entity, bool $force = false)
     {
-        $this->entity = $entity;
+        $allPaths = explode("/", $entity);
+
+        if (count($allPaths) > 1){
+            $this->entity = $allPaths[count($allPaths) - 1];
+            unset($allPaths[count($allPaths) - 1]);
+            $this->subPaths = implode("/", $allPaths);
+        }else{
+            $this->entity = $allPaths[0];
+        }
+
         $this->force = $force;
 
         $this->disk = config("templates-code-generator.disk");

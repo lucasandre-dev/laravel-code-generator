@@ -2,7 +2,7 @@
 
 namespace LucasandreDev\LaravelCodeGenerator\DTO;
 
-readonly class BaseAndEntityOutputDto
+class BaseAndEntityOutputDto
 {
 
     public function __construct(

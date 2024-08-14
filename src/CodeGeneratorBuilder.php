@@ -10,21 +10,22 @@ class CodeGeneratorBuilder
     private string $entityPascalCaseName;
     private string $entityCamelCaseName;
 
-    private string $operationKey;
+    private string $template;
     private ?string $subPaths = null;
     private string $entity;
     /** @var Operation[] */
     private array $operations = [];
     private array $replacements = [];
     private bool $force = false;
+    private ?string $subPath = null;
     private ?string $disk = null;
 
     /**
      * @param string $entity
      * @param bool $force
-     * @throws \Exception
+     * @param string|null $subPath
      */
-    private function __construct(string $entity, bool $force = false)
+    private function __construct(string $entity, bool $force = false, ?string $subPath = null)
     {
         $allPaths = explode("/", $entity);
 
@@ -37,6 +38,7 @@ class CodeGeneratorBuilder
         }
 
         $this->force = $force;
+        $this->subPath = $subPath;
 
         $this->disk = config("templates-code-generator.disk");
 
@@ -53,29 +55,29 @@ class CodeGeneratorBuilder
     /**
      * @throws \Exception
      */
-    public static function builder(string $entity, bool $force = false): self
+    public static function builder(string $entity, bool $force = false, ?string $basePath = null): self
     {
-        return new self($entity, $force);
+        return new self($entity, $force, $basePath);
     }
 
     /**
      * @throws \Exception
      */
-    public function operation(string $operationKey): self
+    public function operation(string $template): self
     {
-        $this->operationKey = $operationKey;
-        $operations = config("templates-code-generator.templates.".$this->operationKey.".operations");
+        $this->template = $template;
+        $operations = config("templates-code-generator.templates.".$this->template.".operations");
 
         if (empty($operations)){
             throw new \Exception("operations not defined");
         }
 
-        foreach ($operations as $operationKey){
-            if (empty($operationKey)){
+        foreach ($operations as $template){
+            if (empty($template)){
                 throw new \Exception("operation empty");
             }
 
-            $this->operations[] = $this->compileOperation($operationKey);
+            $this->operations[] = $this->compileOperation($template);
         }
 
         return $this;
@@ -115,9 +117,16 @@ class CodeGeneratorBuilder
             throw new \Exception("Mockup not found [".$operationArr['template_location']."]");
         }
 
+        $basePath = $this->getBasePath();
+        if (!empty($this->subPath)){
+            $basePath .= $this->subPath."/";
+        }
+
+        $finalDestination = $basePath . $operationArr['final_destination'];
+
         $operation = new Operation(
             $operationArr['template_location'],
-            str_replace("%entity%", $this->entity, $operationArr['final_destination']),
+            str_replace("%entity%", $this->entity, $finalDestination),
             Storage::disk($this->disk)->get($operationArr['template_location']),
             $this->force,
             $this->disk
@@ -127,5 +136,19 @@ class CodeGeneratorBuilder
         }
 
         return $operation;
+    }
+
+    /**
+     * @return \Illuminate\Config\Repository|\Illuminate\Contracts\Foundation\Application|\Illuminate\Foundation\Application|mixed
+     */
+    public function getBasePath(): mixed
+    {
+        $basePath = config("templates-code-generator.base_destination");
+
+        if (!str_ends_with($basePath, '/')) {
+            $basePath .= '/';
+        }
+
+        return $basePath;
     }
 }

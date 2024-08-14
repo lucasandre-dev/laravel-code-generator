@@ -2,6 +2,8 @@
 
 return [
     'disk' => 'templates',
+    'base_destination' => '/src/domain/',
+    'template_default' => 'CA-doctrine-tests',
     'templates' => [
         'CA-doctrine-tests' => [
             'operations' => [
@@ -10,23 +12,23 @@ return [
                  */
                 [
                     'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/Actions/CreateEntityActionMockup.txt",
-                    'final_destination' => "/src/domain/%entity%/Actions/Create%entity%Action.php",
+                    'final_destination' => "%entity%/Actions/Create%entity%Action.php",
                 ],
                 [
                     'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/Actions/UpdateEntityActionMockup.txt",
-                    'final_destination' => "/src/domain/%entity%/Actions/Update%entity%Action.php",
+                    'final_destination' => "%entity%/Actions/Update%entity%Action.php",
                 ],
                 [
                     'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/Actions/DeleteEntityActionMockup.txt",
-                    'final_destination' => "/src/domain/%entity%/Actions/Delete%entity%Action.php",
+                    'final_destination' => "%entity%/Actions/Delete%entity%Action.php",
                 ],
                 [
                     'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/Actions/GetAllEntitiesActionMockup.txt",
-                    'final_destination' => "/src/domain/%entity%/Actions/GetAll%entity%sAction.php",
+                    'final_destination' => "%entity%/Actions/GetAll%entity%sAction.php",
                 ],
                 [
                     'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/Actions/GetEntityByIdActionMockup.txt",
-                    'final_destination' => "/src/domain/%entity%/Actions/Get%entity%ByIdAction.php",
+                    'final_destination' => "%entity%/Actions/Get%entity%ByIdAction.php",
                 ],
 
 
@@ -35,7 +37,7 @@ return [
                  */
                 [
                     'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/Contracts/EntityRepositoryInterface.txt",
-                    'final_destination' => "/src/domain/%entity%/Contracts/%entity%RepositoryInterface.php",
+                    'final_destination' => "%entity%/Contracts/%entity%RepositoryInterface.php",
                 ],
 
                 /**
@@ -43,27 +45,27 @@ return [
                  */
                 [
                     'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/DTO/CreateEntityInputDto.txt",
-                    'final_destination' => "/src/domain/%entity%/DTO/Create%entity%InputDto.php",
+                    'final_destination' => "%entity%/DTO/Create%entity%InputDto.php",
                 ],
                 [
                     'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/DTO/DeleteEntityInputDto.txt",
-                    'final_destination' => "/src/domain/%entity%/DTO/Delete%entity%InputDto.php",
+                    'final_destination' => "%entity%/DTO/Delete%entity%InputDto.php",
                 ],
                 [
                     'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/DTO/EntityOutputDto.txt",
-                    'final_destination' => "/src/domain/%entity%/DTO/%entity%OutputDto.php",
+                    'final_destination' => "%entity%/DTO/%entity%OutputDto.php",
                 ],
                 [
                     'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/DTO/GetAllEntitiesInputDto.txt",
-                    'final_destination' => "/src/domain/%entity%/DTO/GetAll%entity%sInputDto.php",
+                    'final_destination' => "%entity%/DTO/GetAll%entity%sInputDto.php",
                 ],
                 [
                     'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/DTO/GetEntityByIdInputDto.txt",
-                    'final_destination' => "/src/domain/%entity%/DTO/Get%entity%ByIdInputDto.php",
+                    'final_destination' => "%entity%/DTO/Get%entity%ByIdInputDto.php",
                 ],
                 [
                     'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/DTO/UpdateEntityInputDto.txt",
-                    'final_destination' => "/src/domain/%entity%/DTO/Update%entity%InputDto.php",
+                    'final_destination' => "%entity%/DTO/Update%entity%InputDto.php",
                 ],
 
                 /**
@@ -71,7 +73,7 @@ return [
                  */
                 [
                     'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/Entities/Entity.txt",
-                    'final_destination' => "/src/domain/%entity%/Entities/%entity%.php",
+                    'final_destination' => "%entity%/Entities/%entity%.php",
                 ],
 
                 /**
@@ -79,7 +81,7 @@ return [
                  */
                 [
                     'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/Facades/EntityFacade.txt",
-                    'final_destination' => "/src/domain/%entity%/Facades/%entity%Facade.php",
+                    'final_destination' => "%entity%/Facades/%entity%Facade.php",
                 ],
 
                 /**
@@ -87,7 +89,7 @@ return [
                  */
                 [
                     'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/Mappers/EntityMapper.txt",
-                    'final_destination' => "/src/domain/%entity%/Mappers/%entity%Mapper.php",
+                    'final_destination' => "%entity%/Mappers/%entity%Mapper.php",
                 ],
 
                 /**
@@ -95,7 +97,7 @@ return [
                  */
                 [
                     'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/ModelsXML/Entity.orm.txt",
-                    'final_destination' => "/src/domain/%entity%/ModelsXML/%entity%.orm.xml",
+                    'final_destination' => "%entity%/ModelsXML/%entity%.orm.xml",
                 ],
 
                 /**
@@ -103,7 +105,7 @@ return [
                  */
                 [
                     'template_location' => "templates/Mockups/CA-doctrine-tests/Domain/Repositories/EntityRepository.txt",
-                    'final_destination' => "/src/domain/%entity%/Repositories/%entity%Repository.php",
+                    'final_destination' => "%entity%/Repositories/%entity%Repository.php",
                 ],
 
 

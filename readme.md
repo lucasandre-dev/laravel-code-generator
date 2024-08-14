@@ -75,7 +75,3 @@ A simple code generator for Laravel projects to streamline development.
 
 - **Entity:** Name of the entity to be created. Allows subpaths (e.g., `Path1/Path2/EntityName`).
 - **Template:** Select a template number from the options suggested in the terminal.
-
----
-
-This version organizes the sections more clearly, uses headings to separate different parts, and provides formatting for code and commands to improve readability.

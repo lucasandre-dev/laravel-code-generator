@@ -3,8 +3,8 @@
 namespace Domain\%EntityNamespace%\Actions;
 
 use Domain\_Shared\Transaction\TransactionInterface;
-use Domain\%PascalCase%\Contracts\%PascalCase%RepositoryInterface;
-use Domain\%PascalCase%\DTO\Delete%PascalCase%InputDto;
+use Domain\%EntityNamespace%\Contracts\%PascalCase%RepositoryInterface;
+use Domain\%EntityNamespace%\DTO\Delete%PascalCase%InputDto;
 
 final class Delete%PascalCase%Action
 {

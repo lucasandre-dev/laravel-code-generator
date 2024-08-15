@@ -5,10 +5,10 @@ namespace Domain\%EntityNamespace%\Mappers;
 use AutoMapperPlus\AutoMapper;
 use AutoMapperPlus\Configuration\AutoMapperConfig;
 use AutoMapperPlus\MappingOperation\Operation;
-use Domain\%PascalCase%\Contracts\%PascalCase%MapperInterface;
-use Domain\%PascalCase%\DTO\%PascalCase%OutputDto;
-use Domain\%PascalCase%\Entities\%PascalCase%;
-use Domain\%PascalCase%\Profiles\%PascalCase%Profile;
+use Domain\%EntityNamespace%\Contracts\%PascalCase%MapperInterface;
+use Domain\%EntityNamespace%\DTO\%PascalCase%OutputDto;
+use Domain\%EntityNamespace%\Entities\%PascalCase%;
+use Domain\%EntityNamespace%\Profiles\%PascalCase%Profile;
 
 final class %PascalCase%Mapper implements %PascalCase%MapperInterface
 {

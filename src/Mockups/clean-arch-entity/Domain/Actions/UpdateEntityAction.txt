@@ -3,10 +3,10 @@
 namespace Domain\%EntityNamespace%\Actions;
 
 use Domain\_Shared\Transaction\TransactionInterface;
-use Domain\%PascalCase%\Contracts\%PascalCase%RepositoryInterface;
-use Domain\%PascalCase%\DTO\%PascalCase%OutputDto;
-use Domain\%PascalCase%\DTO\Update%PascalCase%InputDto;
-use Domain\%PascalCase%\Contracts\%PascalCase%MapperInterface;
+use Domain\%EntityNamespace%\Contracts\%PascalCase%RepositoryInterface;
+use Domain\%EntityNamespace%\DTO\%PascalCase%OutputDto;
+use Domain\%EntityNamespace%\DTO\Update%PascalCase%InputDto;
+use Domain\%EntityNamespace%\Contracts\%PascalCase%MapperInterface;
 
 final class Update%PascalCase%Action
 {

@@ -2,8 +2,8 @@
 
 namespace Domain\%EntityNamespace%\Contracts;
 
-use Domain\%PascalCase%\DTO\%PascalCase%OutputDto;
-use Domain\%PascalCase%\Entities\%PascalCase%;
+use Domain\%EntityNamespace%\DTO\%PascalCase%OutputDto;
+use Domain\%EntityNamespace%\Entities\%PascalCase%;
 
 interface %PascalCase%MapperInterface
 {

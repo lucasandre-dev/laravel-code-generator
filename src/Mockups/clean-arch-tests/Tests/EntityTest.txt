@@ -2,19 +2,19 @@
 
 namespace %PascalCase%;
 
-use Src\domain\%PascalCase%\Actions\Delete%PascalCase%Action;
-use Src\domain\%PascalCase%\Actions\GetAll%PascalCase%sAction;
-use Src\domain\%PascalCase%\Actions\Get%PascalCase%ByIdAction;
-use Src\domain\%PascalCase%\Actions\Update%PascalCase%Action;
-use Src\domain\%PascalCase%\DTO\Delete%PascalCase%InputDto;
-use Src\domain\%PascalCase%\DTO\GetAll%PascalCase%sInputDto;
-use Src\domain\%PascalCase%\DTO\Get%PascalCase%ByIdInputDto;
-use Src\domain\%PascalCase%\DTO\Update%PascalCase%InputDto;
+use Domain\%EntityNamespace%\Actions\Delete%PascalCase%Action;
+use Domain\%EntityNamespace%\Actions\GetAll%PascalCase%sAction;
+use Domain\%EntityNamespace%\Actions\Get%PascalCase%ByIdAction;
+use Domain\%EntityNamespace%\Actions\Update%PascalCase%Action;
+use Domain\%EntityNamespace%\DTO\Delete%PascalCase%InputDto;
+use Domain\%EntityNamespace%\DTO\GetAll%PascalCase%sInputDto;
+use Domain\%EntityNamespace%\DTO\Get%PascalCase%ByIdInputDto;
+use Domain\%EntityNamespace%\DTO\Update%PascalCase%InputDto;
+use Domain\%EntityNamespace%\Repositories\%PascalCase%Repository;
 use Tests\TestCase;
-use Src\domain\_Shared\Transactions\FakeTransaction;
-use Src\domain\%PascalCase%\Actions\Create%PascalCase%Action;
-use Src\domain\%PascalCase%\DTO\Create%PascalCase%InputDto;
-use Src\domain\%PascalCase%\Repositories\ORM%PascalCase%Repository;
+use Domain\_Shared\Transaction\TransactionFake;
+use Domain\%EntityNamespace%\Actions\Create%PascalCase%Action;
+use Domain\%EntityNamespace%\DTO\Create%PascalCase%InputDto;
 use Tests\Traits\RefreshDatabaseMysql;
 
 class %PascalCase%Test extends TestCase
@@ -23,34 +23,37 @@ class %PascalCase%Test extends TestCase
 
     public function test_create_%camelCase%()
     {
-        $input = new Create%PascalCase%InputDto();
+        $input = new Create%PascalCase%InputDto(
+        );
 
-        $action = new Create%PascalCase%Action(new ORM%PascalCase%Repository(), new FakeTransaction());
+        $action = new Create%PascalCase%Action(new %PascalCase%Repository(), new TransactionFake());
         $output = $action->execute($input);
 
-        $this->assertSame($input->name, $output->name);
+        $this->assertSame($input->, $output->);
     }
 
     public function test_update_%camelCase%()
     {
         $mock = $this->create%PascalCase%Mock();
 
-        $input = new Update%PascalCase%InputDto($mock->id,);
+        $input = new Update%PascalCase%InputDto(
+            $mock->id,
+        );
 
-        $action = new Update%PascalCase%Action(new ORM%PascalCase%Repository(), new FakeTransaction());
+        $action = new Update%PascalCase%Action(new %PascalCase%Repository(), new TransactionFake());
         $output = $action->execute($input);
 
-        $this->assertSame($input->name, $output->name);
+        $this->assertSame($input->id, $output->id);
     }
 
     public function test_get_%camelCase%_by_id()
     {
         $mock = $this->create%PascalCase%Mock();
 
-        $action = new Get%PascalCase%ByIdAction(new ORM%PascalCase%Repository());
+        $action = new Get%PascalCase%ByIdAction(new %PascalCase%Repository());
         $output = $action->execute(new Get%PascalCase%ByIdInputDto($mock->id));
 
-        $this->assertSame($mock->name, $output->name);
+        $this->assertSame($mock->id, $output->id);
     }
 
     public function test_delete_%camelCase%_by_id()
@@ -59,10 +62,10 @@ class %PascalCase%Test extends TestCase
 
         $input = new Delete%PascalCase%InputDto($mock->id);
 
-        $action = new Delete%PascalCase%Action(new ORM%PascalCase%Repository(), new FakeTransaction());
+        $action = new Delete%PascalCase%Action(new %PascalCase%Repository(), new TransactionFake());
         $action->execute($input);
 
-        $action = new Get%PascalCase%ByIdAction(new ORM%PascalCase%Repository());
+        $action = new Get%PascalCase%ByIdAction(new %PascalCase%Repository());
         $output = $action->execute(new Get%PascalCase%ByIdInputDto($mock->id));
 
         $this->assertNull($output);
@@ -74,7 +77,7 @@ class %PascalCase%Test extends TestCase
 
         $input = new GetAll%PascalCase%sInputDto([]);
 
-        $action = new GetAll%PascalCase%sAction(new ORM%PascalCase%Repository());
+        $action = new GetAll%PascalCase%sAction(new %PascalCase%Repository());
         $output = $action->execute($input);
 
         $this->assertCount(1, $output);
@@ -83,9 +86,10 @@ class %PascalCase%Test extends TestCase
 
     public function create%PascalCase%Mock()
     {
-        $input = new Create%PascalCase%InputDto();
+        $input = new Create%PascalCase%InputDto(
+        );
 
-        $action = new Create%PascalCase%Action(new ORM%PascalCase%Repository(), new FakeTransaction());
+        $action = new Create%PascalCase%Action(new %PascalCase%Repository(), new TransactionFake());
         return $action->execute($input);
     }
 }

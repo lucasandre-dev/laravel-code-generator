@@ -3,19 +3,19 @@
 namespace Domain\%EntityNamespace%\Facades;
 
 use Domain\_Shared\Transaction\Transaction;
-use Domain\%PascalCase%\Actions\Create%PascalCase%Action;
-use Domain\%PascalCase%\Actions\Delete%PascalCase%Action;
-use Domain\%PascalCase%\Actions\GetAll%PascalCase%sAction;
-use Domain\%PascalCase%\Actions\Get%PascalCase%ByIdAction;
-use Domain\%PascalCase%\Actions\Update%PascalCase%Action;
-use Domain\%PascalCase%\DTO\Create%PascalCase%InputDto;
-use Domain\%PascalCase%\DTO\Delete%PascalCase%InputDto;
-use Domain\%PascalCase%\DTO\GetAll%PascalCase%sInputDto;
-use Domain\%PascalCase%\DTO\Get%PascalCase%ByIdInputDto;
-use Domain\%PascalCase%\DTO\%PascalCase%OutputDto;
-use Domain\%PascalCase%\DTO\Update%PascalCase%InputDto;
-use Domain\%PascalCase%\Repositories\%PascalCase%Repository;
-use Domain\%PascalCase%\Mappers\%PascalCase%Mapper;
+use Domain\%EntityNamespace%\Actions\Create%PascalCase%Action;
+use Domain\%EntityNamespace%\Actions\Delete%PascalCase%Action;
+use Domain\%EntityNamespace%\Actions\GetAll%PascalCase%sAction;
+use Domain\%EntityNamespace%\Actions\Get%PascalCase%ByIdAction;
+use Domain\%EntityNamespace%\Actions\Update%PascalCase%Action;
+use Domain\%EntityNamespace%\DTO\Create%PascalCase%InputDto;
+use Domain\%EntityNamespace%\DTO\Delete%PascalCase%InputDto;
+use Domain\%EntityNamespace%\DTO\GetAll%PascalCase%sInputDto;
+use Domain\%EntityNamespace%\DTO\Get%PascalCase%ByIdInputDto;
+use Domain\%EntityNamespace%\DTO\%PascalCase%OutputDto;
+use Domain\%EntityNamespace%\DTO\Update%PascalCase%InputDto;
+use Domain\%EntityNamespace%\Repositories\%PascalCase%Repository;
+use Domain\%EntityNamespace%\Mappers\%PascalCase%Mapper;
 
 class %PascalCase%Facade
 {

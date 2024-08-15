@@ -2,9 +2,9 @@
 
 namespace Domain\%EntityNamespace%\Repositories;
 
-use Domain\%PascalCase%\Contracts\%PascalCase%RepositoryInterface;
-use Domain\%PascalCase%\Entities\%PascalCase%;
-use Domain\%PascalCase%\Models\%PascalCase%Model;
+use Domain\%EntityNamespace%\Contracts\%PascalCase%RepositoryInterface;
+use Domain\%EntityNamespace%\Entities\%PascalCase%;
+use Domain\%EntityNamespace%\Models\%PascalCase%Model;
 
 class %PascalCase%Repository implements %PascalCase%RepositoryInterface
 {

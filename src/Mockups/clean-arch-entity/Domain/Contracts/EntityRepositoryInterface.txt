@@ -2,7 +2,7 @@
 
 namespace Domain\%EntityNamespace%\Contracts;
 
-use Domain\%PascalCase%\Entities\%PascalCase%;
+use Domain\%EntityNamespace%\Entities\%PascalCase%;
 
 interface %PascalCase%RepositoryInterface
 {

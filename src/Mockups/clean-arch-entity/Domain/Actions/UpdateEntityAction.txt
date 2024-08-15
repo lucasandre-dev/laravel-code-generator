@@ -1,0 +1,43 @@
+<?php
+
+namespace Domain\%EntityNamespace%\Actions;
+
+use Domain\_Shared\Transaction\TransactionInterface;
+use Domain\%PascalCase%\Contracts\%PascalCase%RepositoryInterface;
+use Domain\%PascalCase%\DTO\%PascalCase%OutputDto;
+use Domain\%PascalCase%\DTO\Update%PascalCase%InputDto;
+use Domain\%PascalCase%\Contracts\%PascalCase%MapperInterface;
+
+final class Update%PascalCase%Action
+{
+
+    public function __construct(
+        private %PascalCase%RepositoryInterface $%camelCase%Repository,
+        private TransactionInterface $transaction,
+        private %PascalCase%MapperInterface $mapper
+    )
+    { }
+
+    /**
+     * @param Update%PascalCase%InputDto $inputDto
+     * @return %PascalCase%OutputDto
+     * @throws \Exception
+     */
+    public function execute(Update%PascalCase%InputDto $inputDto): %PascalCase%OutputDto
+    {
+        $%camelCase% = $this->%camelCase%Repository->getById($inputDto->id);
+
+        if (empty($%camelCase%)){
+            throw new \Exception("não encontrado");
+        }
+
+        $%camelCase%->update($inputDto->);
+
+        $%camelCase%Result = null;
+        $this->transaction->group(function () use ($%camelCase%, &$%camelCase%Result) {
+            $%camelCase%Result = $this->%camelCase%Repository->update($%camelCase%);
+        });
+
+        return $this->mapper->map($%camelCase%Result);
+    }
+}

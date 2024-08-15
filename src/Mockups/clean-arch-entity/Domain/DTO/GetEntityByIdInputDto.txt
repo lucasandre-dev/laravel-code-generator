@@ -1,14 +1,11 @@
 <?php
 
-namespace Src\domain\%PascalCase%\DTO;
+namespace Domain\%EntityNamespace%\DTO;
 
-class Delete%PascalCase%InputDto
+class Get%PascalCase%ByIdInputDto
 {
     public int $id;
 
-    /**
-     * @param int $id
-     */
     public function __construct(int $id)
     {
         $this->id = $id;

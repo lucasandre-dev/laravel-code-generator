@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\domain\%PascalCase%\DTO;
+namespace Domain\%EntityNamespace%\DTO;
 
 class GetAll%PascalCase%sInputDto
 {

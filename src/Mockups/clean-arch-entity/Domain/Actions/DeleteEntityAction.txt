@@ -1,0 +1,34 @@
+<?php
+
+namespace Domain\%EntityNamespace%\Actions;
+
+use Domain\_Shared\Transaction\TransactionInterface;
+use Domain\%PascalCase%\Contracts\%PascalCase%RepositoryInterface;
+use Domain\%PascalCase%\DTO\Delete%PascalCase%InputDto;
+
+final class Delete%PascalCase%Action
+{
+    public function __construct(
+        private %PascalCase%RepositoryInterface $%camelCase%Repository,
+        private TransactionInterface $transaction
+    )
+    {}
+
+    /**
+     * @param Delete%PascalCase%InputDto $inputDto
+     * @return void
+     * @throws \Exception
+     */
+    public function execute(Delete%PascalCase%InputDto $inputDto): void
+    {
+        $%camelCase% = $this->%camelCase%Repository->getById($inputDto->id);
+
+        if (empty($%camelCase%)){
+            throw new \Exception("%PascalCase% not found");
+        }
+
+        $this->transaction->group(function () use ($inputDto) {
+            $this->%camelCase%Repository->deleteById($inputDto->id);
+        });
+    }
+}

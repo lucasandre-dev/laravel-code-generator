@@ -1,0 +1,11 @@
+<?php
+
+namespace Domain\%EntityNamespace%\DTO;
+
+class %PascalCase%OutputDto
+{
+    public function __construct(
+        public int   $id,
+    )
+    { }
+}

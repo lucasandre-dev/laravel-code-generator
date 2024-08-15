@@ -1,0 +1,51 @@
+<?php
+
+namespace Domain\%EntityNamespace%\Facades;
+
+use Domain\_Shared\Transaction\Transaction;
+use Domain\%PascalCase%\Actions\Create%PascalCase%Action;
+use Domain\%PascalCase%\Actions\Delete%PascalCase%Action;
+use Domain\%PascalCase%\Actions\GetAll%PascalCase%sAction;
+use Domain\%PascalCase%\Actions\Get%PascalCase%ByIdAction;
+use Domain\%PascalCase%\Actions\Update%PascalCase%Action;
+use Domain\%PascalCase%\DTO\Create%PascalCase%InputDto;
+use Domain\%PascalCase%\DTO\Delete%PascalCase%InputDto;
+use Domain\%PascalCase%\DTO\GetAll%PascalCase%sInputDto;
+use Domain\%PascalCase%\DTO\Get%PascalCase%ByIdInputDto;
+use Domain\%PascalCase%\DTO\%PascalCase%OutputDto;
+use Domain\%PascalCase%\DTO\Update%PascalCase%InputDto;
+use Domain\%PascalCase%\Repositories\%PascalCase%Repository;
+use Domain\%PascalCase%\Mappers\%PascalCase%Mapper;
+
+class %PascalCase%Facade
+{
+    public static function all(GetAll%PascalCase%sInputDto $inputDto): array
+    {
+        $action = new GetAll%PascalCase%sAction(new %PascalCase%Repository(), new %PascalCase%Mapper());
+        return $action->execute($inputDto);
+    }
+
+    public static function find(Get%PascalCase%ByIdInputDto $inputDto): ?%PascalCase%OutputDto
+    {
+        $action = new Get%PascalCase%ByIdAction(new %PascalCase%Repository(), new %PascalCase%Mapper());
+        return $action->execute($inputDto);
+    }
+
+    public static function create(Create%PascalCase%InputDto $inputDto): %PascalCase%OutputDto
+    {
+        $action = new Create%PascalCase%Action(new %PascalCase%Repository(), new Transaction(), new %PascalCase%Mapper());
+        return $action->execute($inputDto);
+    }
+
+    public static function update(Update%PascalCase%InputDto $inputDto): %PascalCase%OutputDto
+    {
+        $action = new Update%PascalCase%Action(new %PascalCase%Repository(), new Transaction(), new %PascalCase%Mapper());
+        return $action->execute($inputDto);
+    }
+
+    public static function delete(Delete%PascalCase%InputDto $inputDto): void
+    {
+        $action = new Delete%PascalCase%Action(new %PascalCase%Repository(), new Transaction());
+        $action->execute($inputDto);
+    }
+}

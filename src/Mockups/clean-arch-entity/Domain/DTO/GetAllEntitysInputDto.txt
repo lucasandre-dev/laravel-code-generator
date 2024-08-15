@@ -1,0 +1,16 @@
+<?php
+
+namespace Domain\%EntityNamespace%\DTO;
+
+class GetAll%PascalCase%sInputDto
+{
+    public array $filters;
+
+    /**
+     * @param array $filters
+     */
+    public function __construct(array $filters)
+    {
+        $this->filters = $filters;
+    }
+}

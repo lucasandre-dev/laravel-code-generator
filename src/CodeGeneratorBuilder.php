@@ -18,6 +18,7 @@ class CodeGeneratorBuilder
     private array $replacements = [];
     private bool $force = false;
     private ?string $subPath = null;
+    private ?string $namespace = null;
     private ?string $disk = null;
 
     /**
@@ -39,12 +40,17 @@ class CodeGeneratorBuilder
 
         $this->force = $force;
         $this->subPath = $subPath;
+        $this->namespace = $this->entity;
+        if (!empty($this->subPath)){
+            $this->namespace = $this->subPath."/".$this->entity;
+        }
 
         $this->disk = config("templates-code-generator.disk");
 
         $this->entityPascalCaseName = Str::ucfirst($this->entity);
         $this->entityCamelCaseName = Str::camel($this->entity);
         $this->replacements = [
+            "%EntityNamespace%" => str_replace("/", "\\", $this->namespace),
             "%PascalCase%" => $this->entityPascalCaseName,
             "%camelCase%" => $this->entityCamelCaseName,
         ];
@@ -131,6 +137,7 @@ class CodeGeneratorBuilder
             $this->force,
             $this->disk
         );
+
         foreach ($this->replacements as $key=>$replacement){
             $operation->addReplacement($key, $replacement);
         }
@@ -138,12 +145,9 @@ class CodeGeneratorBuilder
         return $operation;
     }
 
-    /**
-     * @return \Illuminate\Config\Repository|\Illuminate\Contracts\Foundation\Application|\Illuminate\Foundation\Application|mixed
-     */
-    public function getBasePath(): mixed
+    public function getBasePath(): string
     {
-        $basePath = config("templates-code-generator.base_destination");
+        $basePath = config("templates-code-generator.templates.".$this->template.".base_destination");
 
         if (!str_ends_with($basePath, '/')) {
             $basePath .= '/';

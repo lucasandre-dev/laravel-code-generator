@@ -1,0 +1,33 @@
+<?php
+
+namespace Domain\%EntityNamespace%\Actions;
+
+use Domain\_Shared\Transaction\TransactionInterface;
+use Domain\%PascalCase%\Contracts\%PascalCase%RepositoryInterface;
+use Domain\%PascalCase%\DTO\Create%PascalCase%InputDto;
+use Domain\%PascalCase%\DTO\%PascalCase%OutputDto;
+use Domain\%PascalCase%\Entities\%PascalCase%;
+use Domain\%PascalCase%\Contracts\%PascalCase%MapperInterface;
+
+final class Create%PascalCase%Action
+{
+    public function __construct(
+        private %PascalCase%RepositoryInterface $%camelCase%Repository,
+        private TransactionInterface $transaction,
+        private %PascalCase%MapperInterface $mapper
+    )
+    { }
+
+    public function execute(Create%PascalCase%InputDto $inputDto): %PascalCase%OutputDto
+    {
+        $%camelCase% = new %PascalCase%(
+        );
+
+        $%camelCase%Result = null;
+        $this->transaction->group(function () use ($%camelCase%, &$%camelCase%Result) {
+            $%camelCase%Result = $this->%camelCase%Repository->create($%camelCase%);
+        });
+
+        return $this->mapper->map($%camelCase%Result);
+    }
+}

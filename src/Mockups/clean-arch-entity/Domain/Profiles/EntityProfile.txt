@@ -1,0 +1,18 @@
+<?php
+
+namespace Domain\%EntityNamespace%\Profiles;
+
+use AutoMapperPlus\Configuration\AutoMapperConfig;
+use AutoMapperPlus\MappingOperation\Operation;
+use Domain\%PascalCase%\DTO\%PascalCase%OutputDto;
+use Domain\%PascalCase%\Entities\%PascalCase%;
+
+class %PascalCase%Profile
+{
+    public static function profile(AutoMapperConfig $config): AutoMapperConfig
+    {
+        $config->registerMapping(%PascalCase%::class, %PascalCase%OutputDto::class);
+
+        return $config;
+    }
+}

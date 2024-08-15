@@ -63,6 +63,14 @@ A simple code generator for Laravel projects to streamline development.
 - **template_default:** Default template used by the command to generate code.
 - **templates:** List of templates with operations, template locations, and final dynamic destinations.
 
+### 📑 Templates
+
+**Replacements:**
+
+- `%EntityNamespace%`: Recommended usage in the mockups namespace.
+- `%PascalCase%`: The entity name in PascalCase format.
+- `%camelCase%`: The entity name in camelCase format.
+
 ### 🛠️ Artisan Commands
 
 #### `code:generate`

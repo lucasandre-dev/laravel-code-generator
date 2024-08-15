@@ -1,0 +1,10 @@
+<?php
+
+namespace Domain\%EntityNamespace%\DTO;
+
+class Create%PascalCase%InputDto
+{
+    public function __construct(
+    )
+    { }
+}

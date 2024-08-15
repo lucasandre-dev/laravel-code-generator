@@ -1,0 +1,11 @@
+<?php
+
+namespace Domain\%EntityNamespace%\Contracts;
+
+use Domain\%PascalCase%\DTO\%PascalCase%OutputDto;
+use Domain\%PascalCase%\Entities\%PascalCase%;
+
+interface %PascalCase%MapperInterface
+{
+    public function map(%PascalCase% $%camelCase%): %PascalCase%OutputDto;
+}

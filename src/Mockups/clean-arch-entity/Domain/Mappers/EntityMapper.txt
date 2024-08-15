@@ -1,0 +1,35 @@
+<?php
+
+namespace Domain\%EntityNamespace%\Mappers;
+
+use AutoMapperPlus\AutoMapper;
+use AutoMapperPlus\Configuration\AutoMapperConfig;
+use AutoMapperPlus\MappingOperation\Operation;
+use Domain\%PascalCase%\Contracts\%PascalCase%MapperInterface;
+use Domain\%PascalCase%\DTO\%PascalCase%OutputDto;
+use Domain\%PascalCase%\Entities\%PascalCase%;
+use Domain\%PascalCase%\Profiles\%PascalCase%Profile;
+
+final class %PascalCase%Mapper implements %PascalCase%MapperInterface
+{
+    private AutoMapperConfig $config;
+
+    public function __construct()
+    {
+        /**
+         * @doc: https://github.com/mark-gerarts/automapper-plus
+         */
+        $this->config = new AutoMapperConfig();
+
+        $this->config = %PascalCase%Profile::profile($this->config);
+
+        return $this->config;
+    }
+
+    public function map(%PascalCase% $%camelCase%): %PascalCase%OutputDto
+    {
+        $mapper = new AutoMapper($this->config);
+
+        return $mapper->map($%camelCase%, %PascalCase%OutputDto::class);
+    }
+}

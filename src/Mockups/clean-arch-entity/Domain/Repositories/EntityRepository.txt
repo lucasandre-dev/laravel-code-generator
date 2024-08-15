@@ -1,0 +1,70 @@
+<?php
+
+namespace Domain\%EntityNamespace%\Repositories;
+
+use Domain\%PascalCase%\Contracts\%PascalCase%RepositoryInterface;
+use Domain\%PascalCase%\Entities\%PascalCase%;
+use Domain\%PascalCase%\Models\%PascalCase%Model;
+
+class %PascalCase%Repository implements %PascalCase%RepositoryInterface
+{
+    public function create(%PascalCase% $%camelCase%): %PascalCase%
+    {
+        %PascalCase%Model::query()->
+
+        return $this->to%PascalCase%($%camelCase%->getId());
+    }
+
+    public function update(%PascalCase% $%camelCase%): %PascalCase%
+    {
+        %PascalCase%Model::query()->
+
+        return $this->to%PascalCase%($%camelCase%->getId());
+    }
+
+    public function getById(int $id): ?%PascalCase%
+    {
+        $%camelCase%Model = %PascalCase%Model::where('id', $id)->first();
+
+        if (!empty($%camelCase%Model)){
+            return $this->to%PascalCase%($%camelCase%Model);
+        }
+
+        return null;
+    }
+
+    /**
+     * @return %PascalCase%[]
+     * @throws \Exception
+     */
+    public function getAll(array $filters): array
+    {
+        $%camelCase% = %PascalCase%Model::all();
+
+        $data%PascalCase%s = [];
+        if (count($%camelCase%) > 0){
+            foreach ($%camelCase% as $brand){
+                $data%PascalCase%s[] = $this->to%PascalCase%($brand);
+            }
+        }
+
+        return $data%PascalCase%s;
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function deleteById(int $id): void
+    {
+        %PascalCase%Model::where('id', $id)->delete();
+    }
+
+    private function to%PascalCase%(%PascalCase% $%camelCase%): %PascalCase%
+    {
+        return new %PascalCase%(
+
+        );
+    }
+}
+
+

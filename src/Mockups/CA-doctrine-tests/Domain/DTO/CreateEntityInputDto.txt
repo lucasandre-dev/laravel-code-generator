@@ -1,8 +1,0 @@
-<?php
-
-namespace Src\domain\%PascalCase%\DTO;
-
-class Create%PascalCase%InputDto
-{
-
-}

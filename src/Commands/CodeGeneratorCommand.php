@@ -24,9 +24,8 @@ class CodeGeneratorCommand extends Command
 
     /**
      * Execute the console command.
-     * @throws \Exception
      */
-    public function handle()
+    public function handle(): void
     {
         $defaultTemplateNumber = 0;
         $defaultTemplate = config("templates-code-generator.template_default");
@@ -37,7 +36,13 @@ class CodeGeneratorCommand extends Command
         $fullPath = $this->ask('What is the name of the entity in the singular? - Ex.: Customer');
 
         if (empty($fullPath)){
-            throw new \Exception("enter a entity name");
+            $this->error("enter a entity name");
+            return;
+        }
+
+        if (!in_array($defaultTemplate, $templatesNames)){
+            $this->error("You need to configure a default template in 'config/templates-code-generator.php'");
+            return;
         }
 
         $this->line("<fg=green> [TEMPLATES] </>");
@@ -55,7 +60,8 @@ class CodeGeneratorCommand extends Command
         $templateNumber = $this->ask('Which template do you want to use? - <fg=yellow> [Default: '.$defaultTemplateNumber.'] </>');
 
         if (!empty($templateNumber) && intval($templateNumber) <= 0){
-            throw new \Exception("Enter a valid model number");
+            $this->error("Enter a valid model number");
+            return;
         }
 
         $templateKey = $templateNumber-1;
